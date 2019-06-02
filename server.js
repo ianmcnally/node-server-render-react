@@ -15,8 +15,7 @@ app.get('/static/:path', function(request, response) {
 })
 
 app.get('*', async function(request, response) {
-  const props = await App.getInitialProps()
-  const element = ReactDomServer.renderToString(React.createElement(App.Component, props))
+  const [element, props] = await fetchPropsAndRenderComponentToString(App)
   response.send(
     `
       <html lang="en">
@@ -41,3 +40,8 @@ const listener = app.listen('3000', () => {
   console.log('Your app is listening on port ' + listener.address().port)
 })
 
+async function fetchPropsAndRenderComponentToString(Component) {
+  const props = await Component.getInitialProps()
+  const element = ReactDomServer.renderToString(React.createElement(Component.Component, props))
+  return [element, props]
+}
