@@ -36,3 +36,7 @@ This is a build out of an initial sketch [here](https://gist.github.com/ianmcnal
 ### Typescript and node
 
 - https://github.com/microsoft/TypeScript-Node-Starter/blob/master/package.json
+
+### Prerender with Puppeteer
+
+- https://developers.google.com/web/tools/puppeteer/articles/ssr
